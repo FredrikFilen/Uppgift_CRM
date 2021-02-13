@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="15.0.1" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="uppgift_crm.Customer">
+    <void property="adress">
+     <string>hej</string>
+    </void>
+    <void property="name">
+     <string>hej</string>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

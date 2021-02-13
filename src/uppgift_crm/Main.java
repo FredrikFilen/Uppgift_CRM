@@ -15,18 +15,27 @@ public class Main extends Application {
 		return mainStage;
 	}
 	
+	public void init() {
+		
+	}
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			mainStage = primaryStage;
-			AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("Assets/PrimaryStage.fxml"));
-			Scene scene = new Scene(root,400,400);
+			AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("login.fxml"));
+			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void stop() {
+		Filehandler.getInstance().saveCustomers();
+		Filehandler.getInstance().saveSellers();
 	}
 	
 	public static void main(String[] args) {
