@@ -2,13 +2,14 @@ package uppgift_crm;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Customer implements Serializable {
 	private String id;
 	private String name;
 	private String adress;
-	private ArrayList<Seller> responsibleSellers;
-	private ArrayList<Event> saleEvents;
+	private ArrayList<Seller> responsibleSellers = new ArrayList<>();
+	private ArrayList<Event> saleEvents = new ArrayList<>();
 	
 	public Customer() {
 		
@@ -61,6 +62,20 @@ public class Customer implements Serializable {
 	
 	public void addSaleEvent(Event event) {
 		this.saleEvents.add(event);
+	}
+	
+	public void createID() {
+		Random rand = new Random();
+		String id = Integer.toString((rand.nextInt(10001)));
+		this.id = id;
+		
+	}
+	
+	public void notifyResponsibleSellers(Event order) {
+		for(Seller s: this.responsibleSellers) {
+			s.addNotification(order.getNotification());
+		}
+		
 	}
 	
 	

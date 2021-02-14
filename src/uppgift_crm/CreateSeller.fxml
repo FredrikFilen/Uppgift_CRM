@@ -5,8 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uppgift_crm.createSellerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uppgift_crm.createSellerController">
    <children>
       <TextField fx:id="idTextfield" layoutX="201.0" layoutY="60.0" />
       <TextField fx:id="passwordTextfield" layoutX="201.0" layoutY="123.0" />
@@ -17,5 +16,6 @@
       <Label layoutX="201.0" layoutY="158.0" text="Name" />
       <Label layoutX="201.0" layoutY="210.0" text="Adress" />
       <Button fx:id="createSellerButton" layoutX="226.0" layoutY="295.0" mnemonicParsing="false" onAction="#createButtonClicked" text="Create user" />
+      <Button fx:id="backButton" layoutX="336.0" layoutY="295.0" mnemonicParsing="false" onAction="#backButtonClicked" text="Back" />
    </children>
 </AnchorPane>

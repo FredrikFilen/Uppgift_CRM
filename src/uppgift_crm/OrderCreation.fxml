@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uppgift_crm.OrderCreationController">
+   <children>
+      <TextField fx:id="productTextField" layoutX="203.0" layoutY="32.0" />
+      <TextField fx:id="priceTextField" layoutX="203.0" layoutY="96.0" />
+      <TextField fx:id="amountTextField" layoutX="203.0" layoutY="158.0" />
+      <Label layoutX="203.0" layoutY="14.0" text="Product" />
+      <Label layoutX="203.0" layoutY="79.0" text="Price" />
+      <Label layoutX="202.0" layoutY="135.0" text="Amount" />
+      <Button fx:id="registerOrderButton" layoutX="183.0" layoutY="273.0" mnemonicParsing="false" onAction="#registerOrderClicked" text="Register order" />
+      <Button fx:id="cancelButton" layoutX="288.0" layoutY="273.0" mnemonicParsing="false" onAction="#cancelOrderClicked" text="Cancel order" />
+   </children>
+</AnchorPane>

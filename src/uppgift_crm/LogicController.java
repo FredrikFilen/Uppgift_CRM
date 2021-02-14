@@ -1,6 +1,8 @@
 package uppgift_crm;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 
 public class LogicController {
@@ -35,6 +37,7 @@ public class LogicController {
 		Customer newCustomer = new Customer();
     	newCustomer.setName(name);
     	newCustomer.setAdress(adress);
+    	newCustomer.createID();
 		this.customers.add(newCustomer);
 	}
 	
@@ -67,6 +70,30 @@ public class LogicController {
 
 	public void setSelectedCustomer(Customer selectedCustomer) {
 		this.selectedCustomer = selectedCustomer;
+	}
+	
+	public void createOrder(String product, Double price, int amount) {
+		Event newOrder = new Event();
+		newOrder.setCustomer(getSelectedCustomer().getName());
+		newOrder.setSeller(getSelectedSeller().getName());
+		newOrder.setProduct(product);
+		newOrder.setPrice(price);
+		newOrder.setAmount(amount);
+		newOrder.setDate(getDateAndTime());
+		newOrder.setNotification(newOrder.createNotification());
+		
+		selectedCustomer.addSaleEvent(newOrder);
+		selectedSeller.addSalesEvent(newOrder);
+		
+		selectedCustomer.notifyResponsibleSellers(newOrder);
+	}
+	
+	public String getDateAndTime() {
+		Date date = new Date();
+		SimpleDateFormat sd = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		String formattedDate = sd.format(date);
+
+		return formattedDate;
 	}
 	
 	

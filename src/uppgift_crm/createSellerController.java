@@ -22,6 +22,9 @@ public class createSellerController extends ControllerTools {
 
 	    @FXML
 	    private Button createSellerButton;
+	    
+	    @FXML
+	    private Button backButton;
 
 	    @FXML
 	    void createButtonClicked(ActionEvent event) throws IOException {
@@ -32,5 +35,10 @@ public class createSellerController extends ControllerTools {
 	    	
 	    	changeScene("Login.fxml");
 	    	
+	    }
+	    
+	    @FXML
+	    void backButtonClicked(ActionEvent event) throws IOException {
+	    	changeScene("Login.fxml");
 	    }
 }

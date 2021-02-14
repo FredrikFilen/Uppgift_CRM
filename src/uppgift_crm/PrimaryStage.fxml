@@ -9,41 +9,55 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uppgift_crm.PrimaryStageController">
    <children>
-      <TextField fx:id="nameTextbox" layoutX="21.0" layoutY="31.0" />
-      <TextField fx:id="adressTextbox" layoutX="21.0" layoutY="71.0" />
-      <Label layoutX="202.0" layoutY="35.0" text="Name" />
-      <Label layoutX="202.0" layoutY="75.0" text="Adress" />
-      <Button fx:id="addCustomerButton" layoutX="21.0" layoutY="119.0" mnemonicParsing="false" onAction="#addCustomerClicked" text="add customer" />
-      <TableView fx:id="customersTableview" layoutX="14.0" layoutY="190.0" prefHeight="260.0" prefWidth="342.0">
+      <TextField fx:id="nameTextField" layoutX="76.0" layoutY="697.0" />
+      <TextField fx:id="adressTextField" layoutX="76.0" layoutY="728.0" />
+      <Label layoutX="22.0" layoutY="701.0" text="Name" />
+      <Label layoutX="20.0" layoutY="732.0" text="Adress" />
+      <Button fx:id="addCustomerButton" layoutX="14.0" layoutY="770.0" mnemonicParsing="false" onAction="#addCustomerClicked" text="Add new Customer" />
+      <TableView fx:id="customersTableview" layoutX="14.0" layoutY="60.0" prefHeight="623.0" prefWidth="342.0">
         <columns>
           <TableColumn fx:id="customerNameColumn" prefWidth="144.0" text="Name" />
-          <TableColumn fx:id="customerAdressColumn" minWidth="6.0" prefWidth="112.0" text="id" />
+          <TableColumn fx:id="customerIdColumn" minWidth="6.0" prefWidth="112.0" text="id" />
+            <TableColumn fx:id="customerAdressColumn" prefWidth="75.0" text="Adress" />
         </columns>
       </TableView>
-      <Button fx:id="addSellerButton" layoutX="126.0" layoutY="119.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="add seller" />
-      <Label layoutX="21.0" layoutY="173.0" text="customers" />
-      <TableView fx:id="sellersTableview" layoutX="429.0" layoutY="190.0" prefHeight="272.0" prefWidth="290.0">
-        <columns>
-          <TableColumn fx:id="sellerNameColumn" prefWidth="117.0" text="Name" />
-          <TableColumn prefWidth="129.0" text="C2" />
-        </columns>
-      </TableView>
-      <Label layoutX="429.0" layoutY="165.0" text="sellers" />
-      <Label layoutX="837.0" layoutY="165.0" text="Selected sellers customers" />
-      <TableView fx:id="sellersCustomersTableview" layoutX="837.0" layoutY="190.0" prefHeight="272.0" prefWidth="383.0">
+      <Label layoutX="22.0" layoutY="29.0" text="All customers" />
+      <Label layoutX="375.0" layoutY="29.0" text="your customers" />
+      <TableView fx:id="sellersCustomersTableview" layoutX="375.0" layoutY="60.0" prefHeight="623.0" prefWidth="383.0">
         <columns>
           <TableColumn fx:id="sellersCustomerNameColumn" prefWidth="155.0" text="Name" />
-          <TableColumn prefWidth="97.0" text="C2" />
+          <TableColumn fx:id="sellersCustomerIdColumn" prefWidth="97.0" text="ID" />
+            <TableColumn fx:id="sellersCustomerAdressColumn" prefWidth="75.0" text="Adress" />
         </columns>
       </TableView>
-      <Button fx:id="addSelectedCustomerButton" layoutX="23.0" layoutY="483.0" mnemonicParsing="false" onAction="#selectedCustomerButtonClick" text="Add customer to selected seller" />
-      <TableView fx:id="sellersSalesTableview" layoutX="837.0" layoutY="496.0" prefHeight="225.0" prefWidth="383.0">
+      <Button fx:id="addSelectedCustomerButton" layoutX="14.0" layoutY="827.0" mnemonicParsing="false" onAction="#selectedCustomerButtonClick" text="Add selected customer to your customers" />
+      <TableView fx:id="sellersEventsTableview" layoutX="782.0" layoutY="60.0" prefHeight="285.0" prefWidth="383.0">
         <columns>
-          <TableColumn fx:id="sellersEventProductColumn" prefWidth="75.0" text="product" />
-          <TableColumn fx:id="sellersEventAmountColumn" prefWidth="75.0" text="amount" />
-            <TableColumn fx:id="sellersEventPriceColumn" prefWidth="75.0" text="price" />
+          <TableColumn fx:id="sellersEventCustomerNameColumn" prefWidth="110.0" text="Name" />
+          <TableColumn fx:id="sellersEventProductColumn" prefWidth="138.0" text="Product" />
+            <TableColumn fx:id="sellersEventPriceColumn" prefWidth="74.0" text="price" />
+            <TableColumn fx:id="sellersEventAmountColumn" prefWidth="60.0" text="Amount" />
         </columns>
       </TableView>
-      <Label layoutX="837.0" layoutY="475.0" text="Selected sellers sales" />
+      <Label layoutX="782.0" layoutY="29.0" text="your sales" />
+      <TableView fx:id="selectedCustomerTableview" layoutX="782.0" layoutY="386.0" prefHeight="299.0" prefWidth="383.0">
+        <columns>
+          <TableColumn fx:id="selectedCustomerProductColumn" prefWidth="75.0" text="Product" />
+          <TableColumn fx:id="selectedCustomerPriceColumn" prefWidth="75.0" text="price" />
+            <TableColumn fx:id="SelectedCustomerAmountColumn" prefWidth="75.0" text="Amount" />
+            <TableColumn fx:id="SelectedCustomerSellerColumn" prefWidth="75.0" text="Seller" />
+            <TableColumn fx:id="SelectedCustomerDateColumn" prefWidth="75.0" text="Date" />
+        </columns>
+      </TableView>
+      <Label layoutX="782.0" layoutY="363.0" text="selected customers orders" />
+      <Label layoutX="1372.0" layoutY="38.0" text="Notifications" />
+      <TableView fx:id="NotificationsTableview" layoutX="1372.0" layoutY="67.0" prefHeight="639.0" prefWidth="356.0">
+        <columns>
+          <TableColumn fx:id="notificationsColumn" prefWidth="355.0" text="Events" />
+        </columns>
+      </TableView>
+      <Button fx:id="registerOrderButton" layoutX="12.0" layoutY="875.0" mnemonicParsing="false" onAction="#registerOrderButtonClicked" text="Register order for selected customer" />
+      <Button fx:id="createReportButton" layoutX="20.0" layoutY="950.0" mnemonicParsing="false" onAction="#createReportBUttonClicked" text="Create report" />
+      <Button fx:id="logOutButton" layoutX="1835.0" layoutY="1035.0" mnemonicParsing="false" onAction="#logOutClicked" text="Log out" />
    </children>
 </AnchorPane>

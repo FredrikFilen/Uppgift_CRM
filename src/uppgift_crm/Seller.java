@@ -8,8 +8,9 @@ public class Seller implements Serializable {
 	private String name;
 	private String adress;
 	private String password;
-	private ArrayList<Customer> customerResponsibilites = new ArrayList<Customer>();
-	private ArrayList<Event> sales = new ArrayList<Event>();
+	private ArrayList<Customer> customerResponsibilites = new ArrayList<>();
+	private ArrayList<Event> sales = new ArrayList<>();
+	private ArrayList<String> notifications = new ArrayList<>();
 	
 	
 	public Seller() {
@@ -82,6 +83,20 @@ public class Seller implements Serializable {
 	
 	public void addSalesEvent(Event event) {
 		this.sales.add(event);
+	}
+
+
+	public ArrayList<String> getNotifications() {
+		return notifications;
+	}
+
+
+	public void setNotifications(ArrayList<String> notifications) {
+		this.notifications = notifications;
+	}
+	
+	public void addNotification(String notification) {
+		this.notifications.add(notification);
 	}
 	
 	
