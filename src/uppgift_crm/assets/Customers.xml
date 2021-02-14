@@ -2,31 +2,60 @@
 <java version="15.0.1" class="java.beans.XMLDecoder">
  <object class="java.util.ArrayList">
   <void method="add">
-   <object class="uppgift_crm.Customer" id="Customer0">
+   <object class="uppgift_crm.Customer">
     <void property="adress">
-     <string>asd</string>
+     <string>hassegatan</string>
     </void>
     <void property="id">
-     <string>967</string>
+     <string>930</string>
     </void>
     <void property="name">
-     <string>asd</string>
+     <string>Hasse</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="uppgift_crm.Customer">
+    <void property="adress">
+     <string>lassegatan</string>
+    </void>
+    <void property="id">
+     <string>9023</string>
+    </void>
+    <void property="name">
+     <string>Lasse</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="uppgift_crm.Customer" id="Customer0">
+    <void property="adress">
+     <string>Bänken</string>
+    </void>
+    <void property="id">
+     <string>9945</string>
+    </void>
+    <void property="name">
+     <string>Bengan</string>
     </void>
     <void property="responsibleSellers">
      <void method="add">
       <object class="uppgift_crm.Seller" id="Seller0">
        <void property="adress">
-        <string>test</string>
+        <string>admingatan</string>
        </void>
        <void property="id">
         <string>1</string>
        </void>
        <void property="name">
-        <string>admin</string>
+        <string>Admin</string>
        </void>
        <void property="notifications">
         <void method="add">
-         <string>Customer: asd Seller: admin Product: 1 Price: 1.0 Amount: 1 Date: 2021/02/14 16:36:24</string>
+         <string>Customer: Bengan Seller: Admin Product: fulöl Price: 5.0 Amount: 20 Date: 2021/02/14 16:54:16</string>
+        </void>
+        <void method="add">
+         <string>Customer: Olof Seller: Admin Product: bananer Price: 50.0 Amount: 69 Date: 2021/02/14 16:54:41</string>
         </void>
        </void>
        <void property="password">
@@ -34,47 +63,82 @@
        </void>
        <void property="responsibleCustomers">
         <void method="add">
-         <object class="uppgift_crm.Customer">
-          <void property="adress">
-           <string>asd</string>
-          </void>
-          <void property="id">
-           <string>967</string>
-          </void>
-          <void property="name">
-           <string>asd</string>
-          </void>
-         </object>
+         <object idref="Customer0"/>
         </void>
         <void method="add">
-         <object idref="Customer0"/>
+         <object class="uppgift_crm.Customer" id="Customer1">
+          <void property="adress">
+           <string>hemlös</string>
+          </void>
+          <void property="id">
+           <string>601</string>
+          </void>
+          <void property="name">
+           <string>Olof</string>
+          </void>
+          <void property="responsibleSellers">
+           <void method="add">
+            <object idref="Seller0"/>
+           </void>
+          </void>
+          <void property="saleEvents">
+           <void method="add">
+            <object class="uppgift_crm.Event" id="Event0">
+             <void property="amount">
+              <int>69</int>
+             </void>
+             <void property="customer">
+              <string>Olof</string>
+             </void>
+             <void property="date">
+              <string>2021/02/14 16:54:41</string>
+             </void>
+             <void property="notification">
+              <string>Customer: Olof Seller: Admin Product: bananer Price: 50.0 Amount: 69 Date: 2021/02/14 16:54:41</string>
+             </void>
+             <void property="price">
+              <double>50.0</double>
+             </void>
+             <void property="product">
+              <string>bananer</string>
+             </void>
+             <void property="seller">
+              <string>Admin</string>
+             </void>
+            </object>
+           </void>
+          </void>
+         </object>
         </void>
        </void>
        <void property="sales">
         <void method="add">
-         <object class="uppgift_crm.Event" id="Event0">
+         <object class="uppgift_crm.Event" id="Event1">
           <void property="amount">
-           <int>1</int>
+           <int>20</int>
           </void>
           <void property="customer">
-           <string>asd</string>
+           <string>Bengan</string>
           </void>
           <void property="date">
-           <string>2021/02/14 16:36:24</string>
+           <string>2021/02/14 16:54:16</string>
           </void>
           <void property="notification">
-           <string>Customer: asd Seller: admin Product: 1 Price: 1.0 Amount: 1 Date: 2021/02/14 16:36:24</string>
+           <string>Customer: Bengan Seller: Admin Product: fulöl Price: 5.0 Amount: 20 Date: 2021/02/14 16:54:16</string>
           </void>
           <void property="price">
-           <double>1.0</double>
+           <double>5.0</double>
           </void>
           <void property="product">
-           <string>1</string>
+           <string>fulöl</string>
           </void>
           <void property="seller">
-           <string>admin</string>
+           <string>Admin</string>
           </void>
          </object>
+        </void>
+        <void method="add">
+         <object idref="Event0"/>
         </void>
        </void>
       </object>
@@ -82,10 +146,13 @@
     </void>
     <void property="saleEvents">
      <void method="add">
-      <object idref="Event0"/>
+      <object idref="Event1"/>
      </void>
     </void>
    </object>
+  </void>
+  <void method="add">
+   <object idref="Customer1"/>
   </void>
  </object>
 </java>

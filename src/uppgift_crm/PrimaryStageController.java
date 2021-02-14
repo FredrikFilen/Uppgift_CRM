@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -126,11 +127,10 @@ public class PrimaryStageController extends ControllerTools implements Initializ
 	    @FXML
 	    private TableColumn<Event, String> SelectedCustomerDateColumn;
 	    
-	    @FXML
-	    private TableView<String> NotificationsTableview;
 
-	    /*@FXML
-	    private TableColumn<String, String> notificationsColumn;*/
+	    @FXML
+	    private ListView<String> notificationsListview;
+	  
 
 
 	    @FXML
@@ -279,10 +279,12 @@ public class PrimaryStageController extends ControllerTools implements Initializ
 	public void populateNotifications() {
 		notificationsObservableList = FXCollections.observableArrayList(LogicController.getInstance().getSelectedSeller().getNotifications());
 		notificationsIterator = notificationsObservableList.iterator();
-		NotificationsTableview.getItems().clear();
+		
+		notificationsListview.getItems().clear();
 		while(notificationsIterator.hasNext()) {
-			NotificationsTableview.getItems().add(notificationsIterator.next());
-			NotificationsTableview.refresh();
+			notificationsListview.getItems().add(notificationsIterator.next());
+			notificationsListview.refresh();
 		}
+		
 	}
 }
