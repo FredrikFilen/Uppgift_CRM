@@ -99,6 +99,18 @@ public class Seller implements Serializable {
 		this.notifications.add(notification);
 	}
 	
+	public void clearNotifications() {
+		this.notifications.clear();
+	}
+
+
+	@Override
+	public String toString() {
+		return "Name: " + name;
+	}
+	
+	 
+	
 	
 
 }

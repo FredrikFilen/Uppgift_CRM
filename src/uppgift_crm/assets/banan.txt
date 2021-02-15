@@ -1,0 +1,5 @@
+Reporttype: Product
+Title: banan
+ingress: test
+Data: 
+Customer: Kalle Seller: Admin Product: banan Price: 10.0 Amount: 5 Date: 2021/02/15 15:42:02

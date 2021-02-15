@@ -150,14 +150,16 @@ public class PrimaryStageController extends ControllerTools implements Initializ
 	    }
 	    
 	    @FXML
-	    void createReportBUttonClicked(ActionEvent event) {
-
+	    void createReportBUttonClicked(ActionEvent event) throws IOException {
+	    	changeScene("CreateReport.fxml");
 	    }
 	    
 	    @FXML
 	    void logOutClicked(ActionEvent event) throws IOException {
+	    	LogicController.getInstance().getSelectedSeller().clearNotifications();
 	    	LogicController.getInstance().setSelectedSeller(null);
 	    	LogicController.getInstance().setSelectedCustomer(null);
+	    	
 	    	changeScene("Login.fxml");
 	    	
 	    }

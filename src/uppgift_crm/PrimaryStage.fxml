@@ -55,6 +55,6 @@
       <Button fx:id="registerOrderButton" layoutX="12.0" layoutY="875.0" mnemonicParsing="false" onAction="#registerOrderButtonClicked" text="Register order for selected customer" />
       <Button fx:id="createReportButton" layoutX="20.0" layoutY="950.0" mnemonicParsing="false" onAction="#createReportBUttonClicked" text="Create report" />
       <Button fx:id="logOutButton" layoutX="1835.0" layoutY="1035.0" mnemonicParsing="false" onAction="#logOutClicked" text="Log out" />
-      <ListView fx:id="notificationsListview" layoutX="1372.0" layoutY="70.0" prefHeight="610.0" prefWidth="398.0" />
+      <ListView fx:id="notificationsListview" layoutX="1372.0" layoutY="70.0" prefHeight="610.0" prefWidth="526.0" />
    </children>
 </AnchorPane>

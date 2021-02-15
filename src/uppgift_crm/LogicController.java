@@ -10,6 +10,7 @@ public class LogicController {
 	private ArrayList<Customer> customers = new ArrayList<Customer>();
 	Iterator<Customer> customersIterator = customers.iterator();
 	private ArrayList<Seller> sellers = new ArrayList<Seller>();
+	private ArrayList<Event> orders = new ArrayList<Event>();
 	
 	private Seller selectedSeller;
 	private Customer selectedCustomer;
@@ -17,6 +18,7 @@ public class LogicController {
 	private LogicController() {
 		this.setCustomers(Filehandler.getInstance().loadCustomers());
 		this.setSellers(Filehandler.getInstance().loadSellers());
+		this.setOrders(Filehandler.getInstance().loadEvents());
 		
 	}
 	
@@ -84,6 +86,7 @@ public class LogicController {
 		
 		selectedCustomer.addSaleEvent(newOrder);
 		selectedSeller.addSalesEvent(newOrder);
+		this.orders.add(newOrder);
 		
 		selectedCustomer.notifyResponsibleSellers(newOrder);
 	}
@@ -95,6 +98,16 @@ public class LogicController {
 
 		return formattedDate;
 	}
+
+	public ArrayList<Event> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(ArrayList<Event> orders) {
+		this.orders = orders;
+	}
+	
+	
 	
 	
 }

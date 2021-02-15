@@ -37,6 +37,7 @@ public class Main extends Application {
 	public void stop() {
 		Filehandler.getInstance().saveCustomers();
 		Filehandler.getInstance().saveSellers();
+		Filehandler.getInstance().saveEvents();
 	}
 	
 	public static void main(String[] args) {

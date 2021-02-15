@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="784.0" prefWidth="1146.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uppgift_crm.CreateReportController">
+   <children>
+      <ChoiceBox fx:id="reportTypeChoicebox" layoutX="157.0" layoutY="34.0" prefWidth="150.0" />
+      <Label layoutX="25.0" layoutY="38.0" text="Choose type of report" />
+      <Button fx:id="reportTypeChoiceButton" layoutX="329.0" layoutY="34.0" mnemonicParsing="false" onAction="#reportTypechoiceClicked" text="Choose" />
+      <Label layoutX="25.0" layoutY="177.0" text="Choose:" />
+      <ChoiceBox fx:id="customerChoiceBox" layoutX="72.0" layoutY="173.0" prefHeight="25.0" prefWidth="235.0" visible="false" />
+      <Button fx:id="createChartButton" layoutX="322.0" layoutY="173.0" mnemonicParsing="false" onAction="#createChartClicked" text="Create chart" />
+      <Label layoutX="573.0" layoutY="38.0" text="Title:" />
+      <TextField fx:id="titleTextfield" layoutX="609.0" layoutY="34.0" prefHeight="25.0" prefWidth="399.0" />
+      <TextArea fx:id="ingressTextarea" layoutX="609.0" layoutY="77.0" prefHeight="231.0" prefWidth="399.0" />
+      <Label layoutX="555.0" layoutY="77.0" text="Ingress: " />
+      <ListView fx:id="displayList" layoutX="25.0" layoutY="274.0" prefHeight="474.0" prefWidth="546.0" />
+      <Button fx:id="cancelButton" layoutX="1036.0" layoutY="736.0" mnemonicParsing="false" onAction="#cancelClicked" text="Back" />
+      <Button fx:id="createReportButton" layoutX="924.0" layoutY="736.0" mnemonicParsing="false" onAction="#createReportClicked" text="Create Report" />
+      <ChoiceBox fx:id="sellerChoicebox" layoutX="73.0" layoutY="173.0" prefHeight="25.0" prefWidth="235.0" visible="false" />
+      <TextField fx:id="productTextfield" layoutX="73.0" layoutY="173.0" prefHeight="25.0" prefWidth="235.0" visible="false" />
+      <Label fx:id="reportValidation" layoutX="818.0" layoutY="740.0" text="Report Created" textFill="#0d9003" visible="false" />
+   </children>
+</AnchorPane>

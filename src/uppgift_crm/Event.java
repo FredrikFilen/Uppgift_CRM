@@ -1,6 +1,8 @@
 package uppgift_crm;
 
-public class Event {
+import java.io.Serializable;
+
+public class Event implements Serializable{
 	private String customer;
 	private String seller;
 	private String product;
