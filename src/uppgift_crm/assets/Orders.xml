@@ -126,5 +126,30 @@
     </void>
    </object>
   </void>
+  <void method="add">
+   <object class="uppgift_crm.Event">
+    <void property="amount">
+     <int>1</int>
+    </void>
+    <void property="customer">
+     <string>Lisa</string>
+    </void>
+    <void property="date">
+     <string>2021/02/15 17:34:57</string>
+    </void>
+    <void property="notification">
+     <string>Customer: Lisa Seller: asd Product: grogg Price: 5.0 Amount: 1 Date: 2021/02/15 17:34:57</string>
+    </void>
+    <void property="price">
+     <double>5.0</double>
+    </void>
+    <void property="product">
+     <string>grogg</string>
+    </void>
+    <void property="seller">
+     <string>asd</string>
+    </void>
+   </object>
+  </void>
  </object>
 </java>
