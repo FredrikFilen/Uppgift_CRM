@@ -1,7 +1,0 @@
-Reporttype: Customer
-Title: Lisa
-ingress: test
-Data: 
-Customer: Lisa Seller: Admin Product: stol Price: 1.0 Amount: 1 Date: 2021/02/15 15:42:30
-Customer: Lisa Seller: Admin Product: bord Price: 15.0 Amount: 2 Date: 2021/02/15 15:42:40
-Customer: Lisa Seller: asd Product: vindruva Price: 1.0 Amount: 1 Date: 2021/02/15 15:43:38

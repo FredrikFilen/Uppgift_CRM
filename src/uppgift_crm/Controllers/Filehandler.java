@@ -1,4 +1,4 @@
-package uppgift_crm;
+package uppgift_crm.Controllers;
 
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
@@ -13,6 +13,10 @@ import java.util.ArrayList;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import uppgift_crm.Models.Customer;
+import uppgift_crm.Models.Event;
+import uppgift_crm.Models.Report;
+import uppgift_crm.Models.Seller;
 
 public class Filehandler {
 	private static Filehandler instance;
@@ -25,6 +29,7 @@ public class Filehandler {
 		
 	}
 	
+	//singleton lazy
 	public static Filehandler getInstance() {
 		if(instance == null) {
 			instance = new Filehandler();
@@ -74,7 +79,7 @@ public class Filehandler {
 	}
 	
 	public void saveCustomers() {
-		ArrayList<Customer> customers = new ArrayList<>(LogicController.getInstance().getCustomers());
+		ArrayList<Customer> customers = new ArrayList<>(DAO.getInstance().getCustomers());
 		XMLEncoder encoder = createEncoder(customersXmlPath);
 		encoder.writeObject(customers);
 		encoder.close();
@@ -82,7 +87,7 @@ public class Filehandler {
 	}
 	
 	public void saveSellers() {
-		ArrayList<Seller> sellers = new ArrayList<>(LogicController.getInstance().getSellers());
+		ArrayList<Seller> sellers = new ArrayList<>(DAO.getInstance().getSellers());
 		XMLEncoder encoder = createEncoder(SellersXmlPath);
 		encoder.writeObject(sellers);
 		encoder.close();
@@ -90,7 +95,7 @@ public class Filehandler {
 	}
 	
 	public void saveEvents() {
-		ArrayList<Event> orders = new ArrayList<>(LogicController.getInstance().getOrders());
+		ArrayList<Event> orders = new ArrayList<>(DAO.getInstance().getOrders());
 		XMLEncoder encoder = createEncoder(ordersXmlPath);
 		encoder.writeObject(orders);
 		encoder.close();

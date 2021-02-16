@@ -1,30 +1,17 @@
-package uppgift_crm;
+package uppgift_crm.Controllers;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Random;
 import java.util.ResourceBundle;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.util.Duration;
+import uppgift_crm.Models.Seller;
 
 public class LoginController extends ControllerTools implements Initializable  {
 
@@ -50,8 +37,8 @@ public class LoginController extends ControllerTools implements Initializable  {
 
 	@FXML
 	void login(ActionEvent event) throws IOException {
-		for (int i = 0; i < LogicController.getInstance().getSellers().size(); i++) {
-			Seller selectedSeller = LogicController.getInstance().getSellers().get(i);
+		for (int i = 0; i < DAO.getInstance().getSellers().size(); i++) {
+			Seller selectedSeller = DAO.getInstance().getSellers().get(i);
 
 			if (selectedSeller.getId().equals(idTextField.getText())
 					&& selectedSeller.getPassword().equals(passwordTextfield.getText())) {
@@ -59,9 +46,9 @@ public class LoginController extends ControllerTools implements Initializable  {
 				
 
 				// passes the selectedUser to main screen
-				LogicController.getInstance().setSelectedSeller(selectedSeller);
+				DAO.getInstance().setSelectedSeller(selectedSeller);
 
-				changeScene("PrimaryStage.fxml");
+				changeScene("/uppgift_crm/view/PrimaryStage.fxml");
 
 			} else {
 				// login unsuccesful
@@ -78,6 +65,6 @@ public class LoginController extends ControllerTools implements Initializable  {
 
 	@FXML
     void createUser(ActionEvent event) throws IOException {
-		changeScene("CreateSeller.fxml");
+		changeScene("/uppgift_crm/view/CreateSeller.fxml");
     }
 }

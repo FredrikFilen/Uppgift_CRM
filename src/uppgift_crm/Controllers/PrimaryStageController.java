@@ -1,4 +1,4 @@
-package uppgift_crm;
+package uppgift_crm.Controllers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,10 +19,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import uppgift_crm.Models.Customer;
+import uppgift_crm.Models.Event;
+import uppgift_crm.Models.Seller;
 
 public class PrimaryStageController extends ControllerTools implements Initializable {
-		private static ObservableList<Customer> customersObservableList;
-		Iterator<Customer> customersIterator;
+		
 		
 		private static ObservableList<Seller> sellersObservableList;
 		Iterator<Seller> sellersIterator;
@@ -39,15 +41,7 @@ public class PrimaryStageController extends ControllerTools implements Initializ
 		private static ObservableList<String> notificationsObservableList;
 		Iterator<String> notificationsIterator;
 	
-	  	@FXML
-	    private TextField nameTextField;
-
-	    @FXML
-	    private TextField adressTextField;
-
-	    @FXML
-	    private Button addCustomerButton;
-	    
+	  
 	    @FXML
 	    private Button registerOrderButton;
 	    
@@ -56,22 +50,15 @@ public class PrimaryStageController extends ControllerTools implements Initializ
 	    
 	    @FXML
 	    private Button logOutButton;
-
-
-	    @FXML
-	    private TableView<Customer> customersTableview;
-
-	    @FXML
-	    private TableColumn<Customer, String> customerNameColumn;
 	    
 	    @FXML
-	    private TableColumn<Customer, String> customerIdColumn;
-
-	    @FXML
-	    private TableColumn<Customer, String> customerAdressColumn;
+	    private Button clearButton;
 
 	    @FXML
 	    private Button addSellerButton;
+	    
+	    @FXML
+	    private Button editCustomersButton;
 	    
 	    @FXML
 	    private Button addSelectedCustomerButton;
@@ -133,51 +120,44 @@ public class PrimaryStageController extends ControllerTools implements Initializ
 	  
 
 
-	    @FXML
-	    void addCustomerClicked(ActionEvent event) {
-	    	LogicController.getInstance().addCustomer(nameTextField.getText(), adressTextField.getText());
-	    	populateCustomerTableview();
-	    	
-	    }
-
 	   
 	    
 	    @FXML
-	    void selectedCustomerButtonClick(ActionEvent event) {
-	    	LogicController.getInstance().getSelectedSeller().addCustomerResponsibility(customersTableview.getSelectionModel().getSelectedItem());
-	    	customersTableview.getSelectionModel().getSelectedItem().addResponsibleSeller(LogicController.getInstance().getSelectedSeller());
-	    	populateSellersCustomersTableview();
-	    }
-	    
-	    @FXML
 	    void createReportBUttonClicked(ActionEvent event) throws IOException {
-	    	changeScene("CreateReport.fxml");
+	    	changeScene("/uppgift_crm/view/CreateReport.fxml");
 	    }
 	    
 	    @FXML
 	    void logOutClicked(ActionEvent event) throws IOException {
-	    	LogicController.getInstance().getSelectedSeller().clearNotifications();
-	    	LogicController.getInstance().setSelectedSeller(null);
-	    	LogicController.getInstance().setSelectedCustomer(null);
 	    	
-	    	changeScene("Login.fxml");
+	    	DAO.getInstance().setSelectedSeller(null);
+	    	DAO.getInstance().setSelectedCustomer(null);
+	    	
+	    	changeScene("/uppgift_crm/view/Login.fxml");
 	    	
 	    }
 	    
 	    @FXML
 	    void registerOrderButtonClicked(ActionEvent event) throws IOException {
-	    	changeScene("OrderCreation.fxml");
+	    	changeScene("/uppgift_crm/view/OrderCreation.fxml");
+	    }
+	    
+	    @FXML
+	    void clearClicked(ActionEvent event) {
+	    	DAO.getInstance().getSelectedSeller().clearNotifications();
+	    	populateNotifications();
+	    }
+	    
+	    @FXML
+	    void editCustomersClicked(ActionEvent event) throws IOException {
+	    	changeScene("/uppgift_crm/view/EditCustomers.fxml");
 	    }
 
 
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		//fill customers tableview
-		customerNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-		customerIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-		customerAdressColumn.setCellValueFactory(new PropertyValueFactory<>("adress"));
-		populateCustomerTableview();
+		
 		
 		//fill sellers customers tableview
 		sellersCustomerNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -201,12 +181,11 @@ public class PrimaryStageController extends ControllerTools implements Initializ
 		
 		
 		//fill notifications tableview
-		//notificationsColumn.setCellValueFactory(new PropertyValueFactory<>("notification"));
 		populateNotifications();
 		
 		//selection listeners
 		sellersCustomersTableview.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-			LogicController.getInstance().setSelectedCustomer(newSelection);
+			DAO.getInstance().setSelectedCustomer(newSelection);
 			try {
 				populateSelectedCustomersEvents();
 			}catch(Exception e) {
@@ -223,19 +202,9 @@ public class PrimaryStageController extends ControllerTools implements Initializ
 		
 	}
 	
-	public void populateCustomerTableview() {
-		customersObservableList = FXCollections.observableArrayList(LogicController.getInstance().getCustomers());
-		customersIterator = customersObservableList.iterator();
-		customersTableview.getItems().clear();
-		while(customersIterator.hasNext()){
-			customersTableview.getItems().add((Customer) customersIterator.next());
-			customersTableview.refresh();
-		}
-		customersTableview.refresh();
-	}
 	
 	public void populateSellerTableview() {
-		sellersObservableList = FXCollections.observableArrayList(LogicController.getInstance().getSellers());
+		sellersObservableList = FXCollections.observableArrayList(DAO.getInstance().getSellers());
 		sellersIterator = sellersObservableList.iterator();
 		sellersTableview.getItems().clear();
 		while(sellersIterator.hasNext()){
@@ -246,7 +215,7 @@ public class PrimaryStageController extends ControllerTools implements Initializ
 	}
 	
 	public void populateSellersCustomersTableview() {
-		sellersCustomersObservableList = FXCollections.observableArrayList(LogicController.getInstance().getSelectedSeller().getResponsibleCustomers());
+		sellersCustomersObservableList = FXCollections.observableArrayList(DAO.getInstance().getSelectedSeller().getResponsibleCustomers());
 		sellersCustomersIterator = sellersCustomersObservableList.iterator();
 		sellersCustomersTableview.getItems().clear();
 		while(sellersCustomersIterator.hasNext()) {
@@ -257,7 +226,7 @@ public class PrimaryStageController extends ControllerTools implements Initializ
 	}
 	
 	public void populateSellersEvents() {
-		sellersEventsObservableList = FXCollections.observableArrayList(LogicController.getInstance().getSelectedSeller().getSales());
+		sellersEventsObservableList = FXCollections.observableArrayList(DAO.getInstance().getSelectedSeller().getSales());
 		sellersEventsIterator = sellersEventsObservableList.iterator();
 		sellersEventsTableview.getItems().clear();
 		while(sellersEventsIterator.hasNext()) {
@@ -268,7 +237,7 @@ public class PrimaryStageController extends ControllerTools implements Initializ
 	}
 	
 	public void populateSelectedCustomersEvents() {
-		selectedCustomersEvents = FXCollections.observableArrayList(LogicController.getInstance().getSelectedCustomer().getSaleEvents());
+		selectedCustomersEvents = FXCollections.observableArrayList(DAO.getInstance().getSelectedCustomer().getSaleEvents());
 		selectedCustomersEventsIterator = selectedCustomersEvents.iterator();
 		selectedCustomerTableview.getItems().clear();
 		while(selectedCustomersEventsIterator.hasNext()) {
@@ -279,7 +248,7 @@ public class PrimaryStageController extends ControllerTools implements Initializ
 	}
 	
 	public void populateNotifications() {
-		notificationsObservableList = FXCollections.observableArrayList(LogicController.getInstance().getSelectedSeller().getNotifications());
+		notificationsObservableList = FXCollections.observableArrayList(DAO.getInstance().getSelectedSeller().getNotifications());
 		notificationsIterator = notificationsObservableList.iterator();
 		
 		notificationsListview.getItems().clear();
@@ -287,6 +256,7 @@ public class PrimaryStageController extends ControllerTools implements Initializ
 			notificationsListview.getItems().add(notificationsIterator.next());
 			notificationsListview.refresh();
 		}
+		notificationsListview.refresh();
 		
 	}
 }

@@ -1,12 +1,16 @@
-package uppgift_crm;
+package uppgift_crm.Controllers;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 
-public class LogicController {
-	private static LogicController instance;
+import uppgift_crm.Models.Customer;
+import uppgift_crm.Models.Event;
+import uppgift_crm.Models.Seller;
+
+public class DAO {
+	private static DAO instance;
 	private ArrayList<Customer> customers = new ArrayList<Customer>();
 	Iterator<Customer> customersIterator = customers.iterator();
 	private ArrayList<Seller> sellers = new ArrayList<Seller>();
@@ -15,16 +19,16 @@ public class LogicController {
 	private Seller selectedSeller;
 	private Customer selectedCustomer;
 	
-	private LogicController() {
+	private DAO() {
 		this.setCustomers(Filehandler.getInstance().loadCustomers());
 		this.setSellers(Filehandler.getInstance().loadSellers());
 		this.setOrders(Filehandler.getInstance().loadEvents());
 		
 	}
 	
-	public static LogicController getInstance() {
+	public static DAO getInstance() {
 		if(instance == null) {
-			instance = new LogicController();
+			instance = new DAO();
 		}
 		return instance;
 	}

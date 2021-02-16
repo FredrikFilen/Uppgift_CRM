@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="794.0" prefWidth="1578.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uppgift_crm.Controllers.PrimaryStageController">
+   <children>
+      <Button fx:id="editCustomersButton" layoutX="23.0" layoutY="715.0" mnemonicParsing="false" onAction="#editCustomersClicked" text="Edit customers" />
+      <Label layoutX="23.0" layoutY="34.0" text="Your customers" />
+      <TableView fx:id="sellersCustomersTableview" layoutX="20.0" layoutY="60.0" prefHeight="623.0" prefWidth="383.0">
+        <columns>
+          <TableColumn fx:id="sellersCustomerNameColumn" prefWidth="155.0" text="Name" />
+          <TableColumn fx:id="sellersCustomerIdColumn" prefWidth="97.0" text="ID" />
+            <TableColumn fx:id="sellersCustomerAdressColumn" prefWidth="75.0" text="Adress" />
+        </columns>
+      </TableView>
+      <TableView fx:id="sellersEventsTableview" layoutX="428.0" layoutY="60.0" prefHeight="285.0" prefWidth="581.0">
+        <columns>
+          <TableColumn fx:id="sellersEventCustomerNameColumn" prefWidth="110.0" text="Name" />
+          <TableColumn fx:id="sellersEventProductColumn" prefWidth="138.0" text="Product" />
+            <TableColumn fx:id="sellersEventPriceColumn" prefWidth="74.0" text="price" />
+            <TableColumn fx:id="sellersEventAmountColumn" prefWidth="60.0" text="Amount" />
+        </columns>
+      </TableView>
+      <Label layoutX="428.0" layoutY="30.0" text="Your sales" />
+      <TableView fx:id="selectedCustomerTableview" layoutX="428.0" layoutY="380.0" prefHeight="299.0" prefWidth="581.0">
+        <columns>
+          <TableColumn fx:id="selectedCustomerProductColumn" prefWidth="75.0" text="Product" />
+          <TableColumn fx:id="selectedCustomerPriceColumn" prefWidth="75.0" text="price" />
+            <TableColumn fx:id="SelectedCustomerAmountColumn" prefWidth="75.0" text="Amount" />
+            <TableColumn fx:id="SelectedCustomerSellerColumn" prefWidth="122.0" text="Seller" />
+            <TableColumn fx:id="SelectedCustomerDateColumn" prefWidth="233.0" text="Date" />
+        </columns>
+      </TableView>
+      <Label layoutX="428.0" layoutY="363.0" text="Selected customers orders" />
+      <Label layoutX="1029.0" layoutY="34.0" text="Notifications" />
+      <Button fx:id="registerOrderButton" layoutX="428.0" layoutY="715.0" mnemonicParsing="false" onAction="#registerOrderButtonClicked" text="Register order for selected customer" />
+      <Button fx:id="createReportButton" layoutX="428.0" layoutY="752.0" mnemonicParsing="false" onAction="#createReportBUttonClicked" text="Create report" />
+      <Button fx:id="logOutButton" layoutX="1499.0" layoutY="727.0" mnemonicParsing="false" onAction="#logOutClicked" text="Log out" />
+      <ListView fx:id="notificationsListview" layoutX="1029.0" layoutY="64.0" prefHeight="615.0" prefWidth="526.0" />
+      <Button fx:id="clearButton" layoutX="1443.0" layoutY="22.0" mnemonicParsing="false" onAction="#clearClicked" text="Clear notifications" />
+   </children>
+</AnchorPane>
