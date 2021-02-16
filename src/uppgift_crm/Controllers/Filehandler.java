@@ -20,10 +20,10 @@ import uppgift_crm.Models.Seller;
 
 public class Filehandler {
 	private static Filehandler instance;
-	private String SellersXmlPath = "src/uppgift_crm/assets/sellers.xml";
-	private String customersXmlPath ="src/uppgift_crm/assets/customers.xml";
-	private String ordersXmlPath = "src/uppgift_crm/assets/orders.xml";
-	private String reportPath = "src/uppgift_crm/assets/";
+	final String SELLERS_XML_PATH = "src/uppgift_crm/assets/sellers.xml";
+	final String CUSTOMERS_XML_PATH ="src/uppgift_crm/assets/customers.xml";
+	final String ORDERS_XML_PATH = "src/uppgift_crm/assets/orders.xml";
+	final String REPORT_PATH = "src/uppgift_crm/assets/";
 
 	private Filehandler() {
 		
@@ -38,7 +38,7 @@ public class Filehandler {
 	}
 	
 	public ArrayList<Customer> loadCustomers() {
-		XMLDecoder decoder = createDecoder(customersXmlPath);
+		XMLDecoder decoder = createDecoder(CUSTOMERS_XML_PATH);
 		ArrayList<Customer> customers = new ArrayList<>();
 		try {
 			customers = (ArrayList<Customer>) decoder.readObject();
@@ -52,7 +52,7 @@ public class Filehandler {
 	}
 	
 	public ArrayList<Seller> loadSellers() {
-		XMLDecoder decoder = createDecoder(SellersXmlPath);
+		XMLDecoder decoder = createDecoder(SELLERS_XML_PATH);
 		ArrayList<Seller> sellers = new ArrayList<>();
 		try {
 			sellers = (ArrayList<Seller>) decoder.readObject();
@@ -66,7 +66,7 @@ public class Filehandler {
 	}
 	
 	public ArrayList<Event> loadEvents(){
-		XMLDecoder decoder = createDecoder(ordersXmlPath);
+		XMLDecoder decoder = createDecoder(ORDERS_XML_PATH);
 		ArrayList<Event> orders = new ArrayList<>();
 		try {
 			orders = (ArrayList<Event>) decoder.readObject();
@@ -80,7 +80,7 @@ public class Filehandler {
 	
 	public void saveCustomers() {
 		ArrayList<Customer> customers = new ArrayList<>(DAO.getInstance().getCustomers());
-		XMLEncoder encoder = createEncoder(customersXmlPath);
+		XMLEncoder encoder = createEncoder(CUSTOMERS_XML_PATH);
 		encoder.writeObject(customers);
 		encoder.close();
 		System.out.println("customers.xml saved");
@@ -88,7 +88,7 @@ public class Filehandler {
 	
 	public void saveSellers() {
 		ArrayList<Seller> sellers = new ArrayList<>(DAO.getInstance().getSellers());
-		XMLEncoder encoder = createEncoder(SellersXmlPath);
+		XMLEncoder encoder = createEncoder(SELLERS_XML_PATH);
 		encoder.writeObject(sellers);
 		encoder.close();
 		System.out.println("sellers.xml saved");
@@ -96,7 +96,7 @@ public class Filehandler {
 	
 	public void saveEvents() {
 		ArrayList<Event> orders = new ArrayList<>(DAO.getInstance().getOrders());
-		XMLEncoder encoder = createEncoder(ordersXmlPath);
+		XMLEncoder encoder = createEncoder(ORDERS_XML_PATH);
 		encoder.writeObject(orders);
 		encoder.close();
 		System.out.println("orders.xml saved");
@@ -104,7 +104,7 @@ public class Filehandler {
 	
 	public void writeReport(Report report) {
 		try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter(reportPath + report.getTitle() + ".txt"));
+			BufferedWriter bw = new BufferedWriter(new FileWriter(REPORT_PATH + report.getTitle() + ".txt"));
 			
 			bw.write("Reporttype: " + report.getReportType() + "\n");
 			
@@ -136,11 +136,7 @@ public class Filehandler {
 		}
 
 		catch (FileNotFoundException fileNotFound) {
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setContentText("Kunde inte hitta filen");
-			alert.setTitle("Exception");
-			alert.setGraphic(null);
-			alert.show();
+			System.out.println("File not found");
 		}
 		return encoder;
 	}
@@ -154,11 +150,7 @@ public class Filehandler {
 		}
 
 		catch (FileNotFoundException fileNotFound) {
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setContentText("kunde inte hitta s�kv�gen");
-			alert.setTitle("Exception");
-			alert.setGraphic(null);
-			alert.show();
+			System.out.println("File not found");
 		}
 		return decoder;
 	}

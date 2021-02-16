@@ -12,11 +12,6 @@
     <void property="name">
      <string>Admin</string>
     </void>
-    <void property="notifications">
-     <void method="add">
-      <string>Customer: Erik Seller: Admin Product: fisk Price: 1.0 Amount: 1 Date: 2021/02/16 15:33:28</string>
-     </void>
-    </void>
     <void property="password">
      <string>1</string>
     </void>

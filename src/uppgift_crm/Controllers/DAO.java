@@ -25,7 +25,7 @@ public class DAO {
 		this.setOrders(Filehandler.getInstance().loadEvents());
 		
 	}
-	
+	//lazy singleton
 	public static DAO getInstance() {
 		if(instance == null) {
 			instance = new DAO();
