@@ -1,7 +1,0 @@
-Reporttype: Customer
-Title: Kalle
-ingress: asdasdasdad
-Data: 
-Customer: Kalle Seller: Admin Product: banan Price: 10.0 Amount: 5 Date: 2021/02/15 15:42:02
-Customer: Kalle Seller: Admin Product: päron Price: 12.0 Amount: 4 Date: 2021/02/15 15:42:21
-Customer: Kalle Seller: rebecca Product: 1kg mjöl Price: 420.0 Amount: 1 Date: 2021/02/16 08:56:50

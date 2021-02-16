@@ -1,4 +1,4 @@
-package uppgift_crm;
+package uppgift_crm.Controllers;
 
 import java.io.IOException;
 
@@ -28,17 +28,17 @@ public class createSellerController extends ControllerTools {
 
 	    @FXML
 	    void createButtonClicked(ActionEvent event) throws IOException {
-	    	LogicController.getInstance().addSeller(idTextfield.getText(), 
+	    	DAO.getInstance().addSeller(idTextfield.getText(), 
 	    			passwordTextfield.getText(), 
 	    			nameTextfield.getText(), 
 	    			adressTextfield.getText());
 	    	
-	    	changeScene("Login.fxml");
+	    	changeScene("/uppgift_crm/view/Login.fxml");
 	    	
 	    }
 	    
 	    @FXML
 	    void backButtonClicked(ActionEvent event) throws IOException {
-	    	changeScene("Login.fxml");
+	    	changeScene("/uppgift_crm/view/Login.fxml");
 	    }
 }

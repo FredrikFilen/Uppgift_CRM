@@ -3,6 +3,7 @@ package uppgift_crm;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import uppgift_crm.Controllers.Filehandler;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -24,9 +25,9 @@ public class Main extends Application {
 		try {
 			mainStage = primaryStage;
 			mainStage.setTitle("CRM");
-			AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("login.fxml"));
+			AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("/uppgift_crm/view/Login.fxml"));
 			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("/uppgift_crm/view/application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {

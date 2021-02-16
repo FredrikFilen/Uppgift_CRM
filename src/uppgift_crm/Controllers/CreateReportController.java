@@ -1,4 +1,4 @@
-package uppgift_crm;
+package uppgift_crm.Controllers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -15,6 +15,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import uppgift_crm.Models.Customer;
+import uppgift_crm.Models.Event;
+import uppgift_crm.Models.Report;
+import uppgift_crm.Models.Seller;
 
 public class CreateReportController extends ControllerTools implements Initializable {
 	
@@ -64,7 +68,7 @@ public class CreateReportController extends ControllerTools implements Initializ
 		
 	@FXML
 	void cancelClicked(ActionEvent event) throws IOException {
-		changeScene("PrimaryStage.fxml");
+		changeScene("/uppgift_crm/view/PrimaryStage.fxml");
 	}
 
 	@FXML
@@ -143,20 +147,20 @@ public class CreateReportController extends ControllerTools implements Initializ
 		}
 		
 		public void populateCustomerSelection() {
-			for(Customer c: LogicController.getInstance().getCustomers()) {
+			for(Customer c: DAO.getInstance().getCustomers()) {
 				customerChoiceBox.getItems().add(c);
 			}
 		}
 		
 		public void populateSellerSelection() {
-			for(Seller s:LogicController.getInstance().getSellers()) {
+			for(Seller s:DAO.getInstance().getSellers()) {
 				sellerChoicebox.getItems().add(s);
 			}
 		}
 		
 		public void populateProducts() {
 			String product = productTextfield.getText();
-			for(Event e:LogicController.getInstance().getOrders()) {
+			for(Event e:DAO.getInstance().getOrders()) {
 				if(e.getProduct().equals(product.toLowerCase())) {
 					displayList.getItems().add(e.getNotification());
 				}

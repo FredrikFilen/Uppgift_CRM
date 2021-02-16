@@ -1,4 +1,4 @@
-package uppgift_crm;
+package uppgift_crm.Models;
 
 import java.io.Serializable;
 

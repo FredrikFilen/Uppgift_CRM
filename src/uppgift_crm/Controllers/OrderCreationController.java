@@ -1,4 +1,4 @@
-package uppgift_crm;
+package uppgift_crm.Controllers;
 
 import java.io.IOException;
 
@@ -25,7 +25,7 @@ public class OrderCreationController extends ControllerTools {
 
 	    @FXML
 	    void cancelOrderClicked(ActionEvent event) throws IOException {
-	    	changeScene("PrimaryStage.fxml");
+	    	changeScene("/uppgift_crm/view/PrimaryStage.fxml");
 	    }
 
 	    @FXML
@@ -34,9 +34,9 @@ public class OrderCreationController extends ControllerTools {
 	    	double price = Double.parseDouble(priceTextField.getText());
 	    	int amount = Integer.parseInt(amountTextField.getText());
 	    	
-	    	LogicController.getInstance().createOrder(product, price, amount);
+	    	DAO.getInstance().createOrder(product, price, amount);
 	    	
-	    	changeScene("PrimaryStage.fxml");
+	    	changeScene("/uppgift_crm/view/PrimaryStage.fxml");
 	    	
 	    }
 }
