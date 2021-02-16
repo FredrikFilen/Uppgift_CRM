@@ -79,6 +79,9 @@
         <void method="add">
          <string>Customer: Lisa Seller: asd Product: vindruva Price: 1.0 Amount: 1 Date: 2021/02/15 15:43:38</string>
         </void>
+        <void method="add">
+         <string>Customer: Kalle Seller: rebecca Product: 1kg mjöl Price: 420.0 Amount: 1 Date: 2021/02/16 08:56:50</string>
+        </void>
        </void>
        <void property="password">
         <string>1</string>
@@ -155,10 +158,61 @@
              </void>
             </object>
            </void>
+           <void method="add">
+            <object class="uppgift_crm.Seller" id="Seller2">
+             <void property="adress">
+              <string>gatan</string>
+             </void>
+             <void property="id">
+              <string>69</string>
+             </void>
+             <void property="name">
+              <string>rebecca</string>
+             </void>
+             <void property="password">
+              <string>69</string>
+             </void>
+             <void property="responsibleCustomers">
+              <void method="add">
+               <object idref="Customer0"/>
+              </void>
+              <void method="add">
+               <object idref="Customer1"/>
+              </void>
+             </void>
+             <void property="sales">
+              <void method="add">
+               <object class="uppgift_crm.Event" id="Event1">
+                <void property="amount">
+                 <int>1</int>
+                </void>
+                <void property="customer">
+                 <string>Kalle</string>
+                </void>
+                <void property="date">
+                 <string>2021/02/16 08:56:50</string>
+                </void>
+                <void property="notification">
+                 <string>Customer: Kalle Seller: rebecca Product: 1kg mjöl Price: 420.0 Amount: 1 Date: 2021/02/16 08:56:50</string>
+                </void>
+                <void property="price">
+                 <double>420.0</double>
+                </void>
+                <void property="product">
+                 <string>1kg mjöl</string>
+                </void>
+                <void property="seller">
+                 <string>rebecca</string>
+                </void>
+               </object>
+              </void>
+             </void>
+            </object>
+           </void>
           </void>
           <void property="saleEvents">
            <void method="add">
-            <object class="uppgift_crm.Event" id="Event1">
+            <object class="uppgift_crm.Event" id="Event2">
              <void property="amount">
               <int>1</int>
              </void>
@@ -183,7 +237,7 @@
             </object>
            </void>
            <void method="add">
-            <object class="uppgift_crm.Event" id="Event2">
+            <object class="uppgift_crm.Event" id="Event3">
              <void property="amount">
               <int>2</int>
              </void>
@@ -216,7 +270,7 @@
        </void>
        <void property="sales">
         <void method="add">
-         <object class="uppgift_crm.Event" id="Event3">
+         <object class="uppgift_crm.Event" id="Event4">
           <void property="amount">
            <int>5</int>
           </void>
@@ -241,7 +295,7 @@
          </object>
         </void>
         <void method="add">
-         <object class="uppgift_crm.Event" id="Event4">
+         <object class="uppgift_crm.Event" id="Event5">
           <void property="amount">
            <int>4</int>
           </void>
@@ -266,21 +320,27 @@
          </object>
         </void>
         <void method="add">
-         <object idref="Event1"/>
+         <object idref="Event2"/>
         </void>
         <void method="add">
-         <object idref="Event2"/>
+         <object idref="Event3"/>
         </void>
        </void>
       </object>
      </void>
+     <void method="add">
+      <object idref="Seller2"/>
+     </void>
     </void>
     <void property="saleEvents">
      <void method="add">
-      <object idref="Event3"/>
+      <object idref="Event4"/>
      </void>
      <void method="add">
-      <object idref="Event4"/>
+      <object idref="Event5"/>
+     </void>
+     <void method="add">
+      <object idref="Event1"/>
      </void>
     </void>
    </object>

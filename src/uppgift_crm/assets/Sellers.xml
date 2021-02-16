@@ -12,11 +12,6 @@
     <void property="name">
      <string>Admin</string>
     </void>
-    <void property="notifications">
-     <void method="add">
-      <string>Customer: Lisa Seller: asd Product: grogg Price: 5.0 Amount: 1 Date: 2021/02/15 17:34:57</string>
-     </void>
-    </void>
     <void property="password">
      <string>1</string>
     </void>
@@ -259,6 +254,311 @@
   </void>
   <void method="add">
    <object idref="Seller1"/>
+  </void>
+  <void method="add">
+   <object class="uppgift_crm.Seller" id="Seller2">
+    <void property="adress">
+     <string>gatan</string>
+    </void>
+    <void property="id">
+     <string>69</string>
+    </void>
+    <void property="name">
+     <string>rebecca</string>
+    </void>
+    <void property="password">
+     <string>69</string>
+    </void>
+    <void property="responsibleCustomers">
+     <void method="add">
+      <object class="uppgift_crm.Customer" id="Customer2">
+       <void property="adress">
+        <string>bänken</string>
+       </void>
+       <void property="id">
+        <string>9123</string>
+       </void>
+       <void property="name">
+        <string>Kalle</string>
+       </void>
+       <void property="responsibleSellers">
+        <void method="add">
+         <object class="uppgift_crm.Seller" id="Seller3">
+          <void property="adress">
+           <string>admingatan</string>
+          </void>
+          <void property="id">
+           <string>1</string>
+          </void>
+          <void property="name">
+           <string>Admin</string>
+          </void>
+          <void property="notifications">
+           <void method="add">
+            <string>Customer: Kalle Seller: Admin Product: banan Price: 10.0 Amount: 5 Date: 2021/02/15 15:42:02</string>
+           </void>
+           <void method="add">
+            <string>Customer: Kalle Seller: Admin Product: päron Price: 12.0 Amount: 4 Date: 2021/02/15 15:42:21</string>
+           </void>
+           <void method="add">
+            <string>Customer: Lisa Seller: Admin Product: stol Price: 1.0 Amount: 1 Date: 2021/02/15 15:42:30</string>
+           </void>
+           <void method="add">
+            <string>Customer: Lisa Seller: Admin Product: bord Price: 15.0 Amount: 2 Date: 2021/02/15 15:42:40</string>
+           </void>
+           <void method="add">
+            <string>Customer: Lisa Seller: asd Product: vindruva Price: 1.0 Amount: 1 Date: 2021/02/15 15:43:38</string>
+           </void>
+           <void method="add">
+            <string>Customer: Kalle Seller: rebecca Product: 1kg mjöl Price: 420.0 Amount: 1 Date: 2021/02/16 08:56:50</string>
+           </void>
+          </void>
+          <void property="password">
+           <string>1</string>
+          </void>
+          <void property="responsibleCustomers">
+           <void method="add">
+            <object idref="Customer2"/>
+           </void>
+           <void method="add">
+            <object class="uppgift_crm.Customer" id="Customer3">
+             <void property="adress">
+              <string>Ica</string>
+             </void>
+             <void property="id">
+              <string>3621</string>
+             </void>
+             <void property="name">
+              <string>Lisa</string>
+             </void>
+             <void property="responsibleSellers">
+              <void method="add">
+               <object idref="Seller3"/>
+              </void>
+              <void method="add">
+               <object class="uppgift_crm.Seller" id="Seller4">
+                <void property="adress">
+                 <string>asd</string>
+                </void>
+                <void property="id">
+                 <string>test</string>
+                </void>
+                <void property="name">
+                 <string>asd</string>
+                </void>
+                <void property="notifications">
+                 <void method="add">
+                  <string>Customer: Lisa Seller: asd Product: vindruva Price: 1.0 Amount: 1 Date: 2021/02/15 15:43:38</string>
+                 </void>
+                </void>
+                <void property="password">
+                 <string>test</string>
+                </void>
+                <void property="responsibleCustomers">
+                 <void method="add">
+                  <object idref="Customer3"/>
+                 </void>
+                </void>
+                <void property="sales">
+                 <void method="add">
+                  <object class="uppgift_crm.Event" id="Event6">
+                   <void property="amount">
+                    <int>1</int>
+                   </void>
+                   <void property="customer">
+                    <string>Lisa</string>
+                   </void>
+                   <void property="date">
+                    <string>2021/02/15 15:43:38</string>
+                   </void>
+                   <void property="notification">
+                    <string>Customer: Lisa Seller: asd Product: vindruva Price: 1.0 Amount: 1 Date: 2021/02/15 15:43:38</string>
+                   </void>
+                   <void property="price">
+                    <double>1.0</double>
+                   </void>
+                   <void property="product">
+                    <string>vindruva</string>
+                   </void>
+                   <void property="seller">
+                    <string>asd</string>
+                   </void>
+                  </object>
+                 </void>
+                </void>
+               </object>
+              </void>
+              <void method="add">
+               <object idref="Seller2"/>
+              </void>
+             </void>
+             <void property="saleEvents">
+              <void method="add">
+               <object class="uppgift_crm.Event" id="Event7">
+                <void property="amount">
+                 <int>1</int>
+                </void>
+                <void property="customer">
+                 <string>Lisa</string>
+                </void>
+                <void property="date">
+                 <string>2021/02/15 15:42:30</string>
+                </void>
+                <void property="notification">
+                 <string>Customer: Lisa Seller: Admin Product: stol Price: 1.0 Amount: 1 Date: 2021/02/15 15:42:30</string>
+                </void>
+                <void property="price">
+                 <double>1.0</double>
+                </void>
+                <void property="product">
+                 <string>stol</string>
+                </void>
+                <void property="seller">
+                 <string>Admin</string>
+                </void>
+               </object>
+              </void>
+              <void method="add">
+               <object class="uppgift_crm.Event" id="Event8">
+                <void property="amount">
+                 <int>2</int>
+                </void>
+                <void property="customer">
+                 <string>Lisa</string>
+                </void>
+                <void property="date">
+                 <string>2021/02/15 15:42:40</string>
+                </void>
+                <void property="notification">
+                 <string>Customer: Lisa Seller: Admin Product: bord Price: 15.0 Amount: 2 Date: 2021/02/15 15:42:40</string>
+                </void>
+                <void property="price">
+                 <double>15.0</double>
+                </void>
+                <void property="product">
+                 <string>bord</string>
+                </void>
+                <void property="seller">
+                 <string>Admin</string>
+                </void>
+               </object>
+              </void>
+              <void method="add">
+               <object idref="Event6"/>
+              </void>
+             </void>
+            </object>
+           </void>
+          </void>
+          <void property="sales">
+           <void method="add">
+            <object class="uppgift_crm.Event" id="Event9">
+             <void property="amount">
+              <int>5</int>
+             </void>
+             <void property="customer">
+              <string>Kalle</string>
+             </void>
+             <void property="date">
+              <string>2021/02/15 15:42:02</string>
+             </void>
+             <void property="notification">
+              <string>Customer: Kalle Seller: Admin Product: banan Price: 10.0 Amount: 5 Date: 2021/02/15 15:42:02</string>
+             </void>
+             <void property="price">
+              <double>10.0</double>
+             </void>
+             <void property="product">
+              <string>banan</string>
+             </void>
+             <void property="seller">
+              <string>Admin</string>
+             </void>
+            </object>
+           </void>
+           <void method="add">
+            <object class="uppgift_crm.Event" id="Event10">
+             <void property="amount">
+              <int>4</int>
+             </void>
+             <void property="customer">
+              <string>Kalle</string>
+             </void>
+             <void property="date">
+              <string>2021/02/15 15:42:21</string>
+             </void>
+             <void property="notification">
+              <string>Customer: Kalle Seller: Admin Product: päron Price: 12.0 Amount: 4 Date: 2021/02/15 15:42:21</string>
+             </void>
+             <void property="price">
+              <double>12.0</double>
+             </void>
+             <void property="product">
+              <string>päron</string>
+             </void>
+             <void property="seller">
+              <string>Admin</string>
+             </void>
+            </object>
+           </void>
+           <void method="add">
+            <object idref="Event7"/>
+           </void>
+           <void method="add">
+            <object idref="Event8"/>
+           </void>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object idref="Seller2"/>
+        </void>
+       </void>
+       <void property="saleEvents">
+        <void method="add">
+         <object idref="Event9"/>
+        </void>
+        <void method="add">
+         <object idref="Event10"/>
+        </void>
+        <void method="add">
+         <object class="uppgift_crm.Event" id="Event11">
+          <void property="amount">
+           <int>1</int>
+          </void>
+          <void property="customer">
+           <string>Kalle</string>
+          </void>
+          <void property="date">
+           <string>2021/02/16 08:56:50</string>
+          </void>
+          <void property="notification">
+           <string>Customer: Kalle Seller: rebecca Product: 1kg mjöl Price: 420.0 Amount: 1 Date: 2021/02/16 08:56:50</string>
+          </void>
+          <void property="price">
+           <double>420.0</double>
+          </void>
+          <void property="product">
+           <string>1kg mjöl</string>
+          </void>
+          <void property="seller">
+           <string>rebecca</string>
+          </void>
+         </object>
+        </void>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object idref="Customer3"/>
+     </void>
+    </void>
+    <void property="sales">
+     <void method="add">
+      <object idref="Event11"/>
+     </void>
+    </void>
+   </object>
   </void>
  </object>
 </java>
